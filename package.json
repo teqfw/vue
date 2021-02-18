@@ -1,13 +1,13 @@
 {
-  "name": "@vendor/project",
+  "name": "@teqfw/vue",
   "version": "0.1.0",
-  "description": "TeqFW: module description.",
+  "description": "TeqFW: base module to use Vue on the front in teq-plugins.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vendor/project.git"
+    "url": "git+https://github.com/teqfw/vue.git"
   },
   "keywords": [
     "pet",
@@ -19,15 +19,15 @@
   "author": "Alex Gusev <alex@flancer64.com>",
   "license": "AGPL-3.0-only",
   "bugs": {
-    "url": "https://github.com/vendor/project/issues"
+    "url": "https://github.com/teqfw/vue/issues"
   },
-  "homepage": "https://github.com/vendor/project#readme",
+  "homepage": "https://github.com/teqfw/vue#readme",
   "dependencies": {
     "@teqfw/core-app": "github:teqfw/core-app"
   },
   "teqfw": {
     "autoload": {
-      "ns": "Vendor_Project",
+      "ns": "TeqFw_Vue",
       "path": "./src"
     }
   }
