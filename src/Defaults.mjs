@@ -1,5 +1,5 @@
 export default class TeqFw_Vue_Defaults {
-    BACK_REALM = 'project';  // realm for API services ('/api/project/...') and CLI commands ('project-...')
+    BACK_REALM = 'vue';  // realm for API services ('/api/project/...') and CLI commands ('project-...')
     /** @type {TeqFw_Core_App_Defaults} */
     MOD_CORE;
 
