@@ -1,2 +1,3 @@
-# repo-tmpl-mod
-Template repoitory to create repos for Tequila modules.
+# @teqfw/vue
+
+TeqFW: base module to use Vue on the front in teq-plugins.
