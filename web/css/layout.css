@@ -1,0 +1,42 @@
+/* Styles for common layouts */
+
+.t-grid {
+    display: grid;
+    grid-auto-flow: column;
+}
+
+.t-grid.cols {
+    grid-auto-flow: column;
+}
+
+.t-grid.rows {
+    grid-auto-flow: row;
+}
+
+.t-grid.gutter-none {
+    grid-gap: var(--grid-gap-none);
+}
+
+.t-grid.gutter-xs {
+    grid-gap: var(--grid-gap-xs);
+}
+
+.t-grid.gutter-sm {
+    grid-gap: var(--grid-gap-sm);
+}
+
+.t-grid.gutter-md {
+    grid-gap: var(--grid-gap-md);
+}
+
+.t-grid.gutter-lg {
+    grid-gap: var(--grid-gap-lg);
+}
+
+.t-grid.gutter-xl {
+    grid-gap: var(--grid-gap-xl);
+}
+
+.t-grid.align-items-center {
+    align-items: center;
+}

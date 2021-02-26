@@ -1,0 +1,8 @@
+.t-grid {
+    --grid-gap-none: 0;
+    --grid-gap-xs: 1vw;
+    --grid-gap-sm: 2vw;
+    --grid-gap-md: 3vw;
+    --grid-gap-lg: 4vw;
+    --grid-gap-xl: 5vw;
+}
