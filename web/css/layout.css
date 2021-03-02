@@ -2,7 +2,6 @@
 
 .t-grid {
     display: grid;
-    grid-auto-flow: column;
 }
 
 .t-grid.cols {
