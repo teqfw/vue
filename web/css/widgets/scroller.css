@@ -1,0 +1,45 @@
+.teq_ui_scroller_v {
+    --value-height: 40px;
+    display: block;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.teq_ui_scroller_v_mask {
+    background-image: linear-gradient(white 5%, transparent, white 95%);
+    height: 100%;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.teq_ui_scroller_v_display {
+    /*z-index: 3;*/
+    border-bottom: 1px solid;
+    border-top: 1px solid;
+    height: var(--value-height);
+    margin: 0 auto;
+    position: absolute;
+    top: calc((100% - var(--value-height)) / 2);
+    width: 100%;
+}
+
+.teq_ui_scroller_v_values {
+    left: 0;
+    position: absolute;
+    /*top: calc((100% - var(--value-height)) / 2);*/
+    width: 100%;
+}
+
+.teq_ui_scroller_v_value {
+    height: var(--value-height);
+    line-height: var(--value-height);
+    margin: auto;
+    text-align: center;
+    vertical-align: middle;
+}
