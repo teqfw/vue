@@ -30,8 +30,8 @@ function TeqFw_Vue_Front_Widget_Scroller_Vertical(spec) {
     return {
         template,
         props: {
-            items: Array,       // [key, value] pairs
-            initValue: String   // initial position of the scroller
+            items: Array, // [key, value] pairs
+            initValue: null, // initial position of the scroller
         },
         emits: ['selected'],
         data: function () {
