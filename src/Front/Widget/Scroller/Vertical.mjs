@@ -1,10 +1,15 @@
 /**
  * Vertical scroller to select one value from a set.
+ *
+ * @namespace TeqFw_Vue_Front_Widget_Scroller_Vertical
  */
+// MODULE'S VARS
+const NS = 'TeqFw_Vue_Front_Widget_Scroller_Vertical';
 const CLASS_DISPLAY = 'teq_ui_scroller_v_display';
 const CLASS_ITEMS = 'teq_ui_scroller_v_values';
 const CSS_VAR_HEIGHT = '--value-height';
 const SCROLL_DURATION = 2000;   // animation duration (in msec.)
+const EVT_SELECTED = 'selected';
 
 const template = `
 <div class="teq_ui_scroller_v" >
@@ -16,24 +21,31 @@ const template = `
 </div>
 `;
 
+// MODULE'S FUNCTIONS
 /**
- * Constructor to create Vue component for vertical scroller.
+ * Factory to create template for new Vue component instances.
  *
- * @param {TeqFw_Di_SpecProxy} spec
- * @return {VueComponent}
- * @constructor
+ * @memberOf TeqFw_Vue_Front_Widget_Scroller_Vertical
+ * @returns {TeqFw_Vue_Front_Widget_Scroller_Vertical.vueCompTmpl}
  */
-function TeqFw_Vue_Front_Widget_Scroller_Vertical(spec) {
+function Factory(spec) {
     /** @type {typeof TeqFw_Vue_Front_On_Touch} */
     const OnTouch = spec['TeqFw_Vue_Front_On_Touch#'];    // class constructor
 
+    /**
+     * Template to create new component instances using Vue.
+     *
+     * @const {Object} vueCompTmpl
+     * @memberOf TeqFw_Vue_Front_Widget_Scroller_Vertical
+     */
     return {
+        name: NS,
         template,
         props: {
             items: Array, // [key, value] pairs
             initValue: null, // initial position of the scroller
         },
-        emits: ['selected'],
+        emits: [EVT_SELECTED],
         data: function () {
             return {
                 initTop: 0,             // initial position of the top of the values DIV on movements
@@ -74,7 +86,7 @@ function TeqFw_Vue_Front_Widget_Scroller_Vertical(spec) {
                 const newTop = displayTop - (fixedIdx * rowHeight);
                 elValues.style.top = `${newTop}px`;
                 this.selectedKey = (this.items[fixedIdx]) ? this.items[fixedIdx]['key'] : null;
-                this.$emit('selected', this.selectedKey);
+                this.$emit(EVT_SELECTED, this.selectedKey);
             },
 
             /**
@@ -91,7 +103,7 @@ function TeqFw_Vue_Front_Widget_Scroller_Vertical(spec) {
                 const newTop = displayTop - (fixedIdx * rowHeight);
                 elValues.style.top = `${newTop}px`;
                 this.selectedKey = (this.items[fixedIdx]) ? this.items[fixedIdx]['key'] : null;
-                this.$emit('selected', this.selectedKey);
+                this.$emit(EVT_SELECTED, this.selectedKey);
             },
 
             /**
@@ -121,6 +133,14 @@ function TeqFw_Vue_Front_Widget_Scroller_Vertical(spec) {
                 };
             },
 
+        },
+        watch: {
+            initValue(current, old) {
+                if (current !== old) {
+                    // set initial position for the scroll on value change
+                    this.initPosition();
+                }
+            }
         },
         mounted() {
             // PARSE INPUT & DEFINE WORKING VARS
@@ -210,27 +230,27 @@ function TeqFw_Vue_Front_Widget_Scroller_Vertical(spec) {
             // mark handlers to get sources in debugger
             Object.defineProperty(onCancel, 'name', {
                 writable: true,
-                value: 'TeqFw_Vue_Front_Widget_Scroller_Vertical/mounted/onCancel'
+                value: `${NS}/mounted/onCancel`
             });
             Object.defineProperty(onDown, 'name', {
                 writable: true,
-                value: 'TeqFw_Vue_Front_Widget_Scroller_Vertical/mounted/onDown'
+                value: `${NS}/mounted/onDown`
             });
             Object.defineProperty(onEnd, 'name', {
                 writable: true,
-                value: 'TeqFw_Vue_Front_Widget_Scroller_Vertical/mounted/onEnd'
+                value: `${NS}/mounted/onEnd`
             });
             Object.defineProperty(onMove, 'name', {
                 writable: true,
-                value: 'TeqFw_Vue_Front_Widget_Scroller_Vertical/mounted/onMove'
+                value: `${NS}/mounted/onMove`
             });
             Object.defineProperty(onStart, 'name', {
                 writable: true,
-                value: 'TeqFw_Vue_Front_Widget_Scroller_Vertical/mounted/onStart'
+                value: `${NS}/mounted/onStart`
             });
             Object.defineProperty(onUp, 'name', {
                 writable: true,
-                value: 'TeqFw_Vue_Front_Widget_Scroller_Vertical/mounted/onUp'
+                value: `${NS}/mounted/onUp`
             });
 
             /** @type {TeqFw_Vue_Front_On_Touch} */
@@ -248,4 +268,8 @@ function TeqFw_Vue_Front_Widget_Scroller_Vertical(spec) {
     };
 }
 
-export default TeqFw_Vue_Front_Widget_Scroller_Vertical;
+// MODULE'S FUNCTIONALITY
+Object.defineProperty(Factory, 'name', {value: `${NS}.${Factory.name}`});
+
+// MODULE'S EXPORT
+export default Factory;
