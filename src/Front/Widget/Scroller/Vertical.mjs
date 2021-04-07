@@ -30,7 +30,7 @@ const template = `
  */
 function Factory(spec) {
     /** @type {typeof TeqFw_Vue_Front_On_Touch} */
-    const OnTouch = spec['TeqFw_Vue_Front_On_Touch#'];    // class constructor
+    const OnTouch = spec['TeqFw_Vue_Front_On_Touch#'];    // class
 
     /**
      * Template to create new component instances using Vue.
