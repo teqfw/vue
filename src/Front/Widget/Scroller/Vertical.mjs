@@ -8,8 +8,9 @@ const NS = 'TeqFw_Vue_Front_Widget_Scroller_Vertical';
 const CLASS_DISPLAY = 'teq_ui_scroller_v_display';
 const CLASS_ITEMS = 'teq_ui_scroller_v_values';
 const CSS_VAR_HEIGHT = '--value-height';
-const SCROLL_DURATION = 2000;   // animation duration (in msec.)
 const EVT_SELECTED = 'selected';
+const SCROLL_DURATION_DEF = 1000;   // default for animation duration (in msec.)
+const SCROLL_ITEM_DURATION = 100;   // minimal animation duration for one item in scroller (in msec.)
 
 const template = `
 <div class="teq_ui_scroller_v" >
@@ -50,6 +51,7 @@ function Factory(spec) {
             return {
                 initTop: 0,             // initial position of the top of the values DIV on movements
                 selectedKey: null,
+                scrollDurationTotal: SCROLL_DURATION_DEF, // total animation duration based on items count
             };
         },
         computed: {},
@@ -110,19 +112,21 @@ function Factory(spec) {
              * Animate scrolling from ${currentTop} to ${targetTop}.
              *
              * @param {HTMLElement} element
-             * @param {number} currentTop
-             * @param {number} targetTop
+             * @param {Number} currentTop
+             * @param {Number} targetTop
+             * @param {Number} duration
              */
-            scroll(element, currentTop, targetTop) {
+            scroll(element, currentTop, targetTop, duration) {
                 const me = this;
                 const styleValues = element.style;
+                if (duration < SCROLL_DURATION_DEF) duration = SCROLL_DURATION_DEF;
                 element.animate([
                     // keyframes
                     {top: `${currentTop}px`},
                     {top: `${targetTop}px`}
                 ], {
                     direction: 'alternate',
-                    duration: SCROLL_DURATION,
+                    duration,
                     // easing: 'ease-out',
                     iterations: 1,
                 });
@@ -139,6 +143,16 @@ function Factory(spec) {
                 if (current !== old) {
                     // set initial position for the scroll on value change
                     this.initPosition();
+                }
+            },
+            items(current) {
+                // set total scroll duration for all items
+                if (Array.isArray(current)) {
+                    const length = current.length;
+                    const duration = length * SCROLL_ITEM_DURATION;
+                    this.scrollDurationTotal = Math.min(SCROLL_DURATION_DEF, duration);
+                } else {
+                    this.scrollDurationTotal = SCROLL_DURATION_DEF;
                 }
             }
         },
@@ -164,7 +178,11 @@ function Factory(spec) {
                 const displayTop = me.getDisplayTop();
                 const elValues = me.$el.querySelector(`.${CLASS_ITEMS}`);
                 const currentTop = elValues.offsetTop;
-                me.scroll(elValues, currentTop, displayTop);
+                // calc duration
+                const rowHeight = me.getItemHeight();
+                const height = elValues.offsetHeight;
+                const duration = height / rowHeight * SCROLL_ITEM_DURATION;
+                me.scroll(elValues, currentTop, displayTop, duration);
             }
 
             /**
@@ -223,7 +241,8 @@ function Factory(spec) {
                 const currentTop = elValues.offsetTop;
                 const height = elValues.offsetHeight;
                 const targetTop = displayTop - height + rowHeight;
-                me.scroll(elValues, currentTop, targetTop);
+                const duration = height / rowHeight * SCROLL_ITEM_DURATION;
+                me.scroll(elValues, currentTop, targetTop, duration);
             }
 
             // MAIN FUNCTIONALITY
