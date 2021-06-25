@@ -2,5 +2,11 @@
   "autoload": {
     "ns": "TeqFw_Vue",
     "path": "./src"
+  },
+  "http2": {
+    "statics": {
+      "/vue-router/": "/vue-router/dist/",
+      "/vue/": "/vue/dist/"
+    }
   }
 }
