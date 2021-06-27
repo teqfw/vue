@@ -8,5 +8,11 @@
       "/vue-router/": "/vue-router/dist/",
       "/vue/": "/vue/dist/"
     }
+  },
+  "web": {
+    "statics": {
+      "/vue-router/": "/vue-router/dist/",
+      "/vue/": "/vue/dist/"
+    }
   }
 }
