@@ -10,7 +10,7 @@ export default class TeqFw_Vue_Defaults {
 
     constructor(spec) {
         /** @type {TeqFw_Core_Defaults} */
-        this.MOD_CORE = spec['TeqFw_Core_Defaults$'];    // pin 'core' defaults
+        // this.MOD_CORE = spec['TeqFw_Core_Defaults$'];    // pin 'core' defaults
         Object.freeze(this);
     }
 }
