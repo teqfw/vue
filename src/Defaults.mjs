@@ -5,12 +5,12 @@ export default class TeqFw_Vue_Defaults {
     DI_VUE = 'vue_vue'; // ID of the Vue lib singleton.
     DI_VUEX = 'vue_vuex'; // ID of the Vuex singleton.
 
-    /** @type {TeqFw_Core_Defaults} */
+    /** @type {TeqFw_Core_Back_Defaults} */
     MOD_CORE;
 
     constructor(spec) {
-        /** @type {TeqFw_Core_Defaults} */
-        // this.MOD_CORE = spec['TeqFw_Core_Defaults$'];    // pin 'core' defaults
+        /** @type {TeqFw_Core_Back_Defaults} */
+        // this.MOD_CORE = spec['TeqFw_Core_Back_Defaults$'];    // pin 'core' defaults
         Object.freeze(this);
     }
 }
