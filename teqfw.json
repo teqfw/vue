@@ -1,7 +1,9 @@
 {
-  "autoload": {
-    "ns": "TeqFw_Vue",
-    "path": "./src"
+  "di": {
+    "autoload": {
+      "ns": "TeqFw_Vue",
+      "path": "./src"
+    }
   },
   "http2": {
     "statics": {
