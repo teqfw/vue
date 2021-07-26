@@ -1,8 +1,6 @@
 /**
  * DI-compatible wrapper for 'vue' library.
  * 'vue' library does not compatible with DI-container and should be loaded on front with HTML '<script>' tag.
- *
- * @namespace TeqFw_Vue_Front_Lib
  */
 export default class TeqFw_Vue_Front_Lib {
     /** Vue Router object from globals. */
@@ -11,6 +9,8 @@ export default class TeqFw_Vue_Front_Lib {
     #vue;
 
     constructor() {
+        // noinspection JSValidateTypes
+        /** @type {{Vue, VueRouter}} */
         const window = self;
         if (window.Vue) {
             this.#vue = window.Vue;
