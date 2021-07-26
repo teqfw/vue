@@ -23,8 +23,8 @@
   },
   "homepage": "https://github.com/teqfw/vue#readme",
   "dependencies": {
-    "@teqfw/web": "github:teqfw/web",
-    "vue": "^3.0.5",
-    "vue-router": "^4.0.3"
+    "@teqfw/web": "*",
+    "vue": "^3",
+    "vue-router": "^4"
   }
 }
