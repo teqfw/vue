@@ -10,11 +10,16 @@
     "url": "git+https://github.com/teqfw/vue.git"
   },
   "keywords": [
-    "pet",
-    "project",
-    "hobby",
-    "web",
-    "applications"
+    "ecmascript 2015",
+    "es6+",
+    "vue",
+    "vue 3",
+    "pwa",
+    "spa",
+    "teqfw",
+    "tequila framework",
+    "web applications",
+    "web-apps"
   ],
   "author": "Alex Gusev <alex@flancer64.com>",
   "license": "AGPL-3.0-only",
