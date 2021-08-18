@@ -1,11 +1,11 @@
 {
-  "di": {
+  "@teqfw/di": {
     "autoload": {
       "ns": "TeqFw_Vue",
       "path": "./src"
     }
   },
-  "web": {
+  "@teqfw/web": {
     "statics": {
       "/vue-router/": "/vue-router/dist/",
       "/vue/": "/vue/dist/"
