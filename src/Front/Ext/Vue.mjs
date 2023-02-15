@@ -1,7 +1,7 @@
 /**
  * Wrap Vue 3 library to use as ES6 module in TeqFW on the front.
  *
- * @namespace TeqFw_Vue_Front_Lib_Vue
+ * @namespace TeqFw_Vue_Front_Ext_Vue
  */
 if (window.Vue === undefined) {
     throw new Error(`

@@ -1,7 +1,7 @@
 /**
  * Wrap Vue Router library to use as ES6 module in TeqFW on the front.
  *
- * @namespace TeqFw_Vue_Front_Lib_Router
+ * @namespace TeqFw_Vue_Front_Ext_Router
  */
 if (window.Vue === undefined) {
     throw new Error(`
