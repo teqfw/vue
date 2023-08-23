@@ -20,7 +20,7 @@ This plugin uses `TeqFw_Vue` namespace.
 Load functionality with TeqFW DI:
 
 ```javascript
-// using TeqFw_Di_Shared_Container
+// using TeqFw_Di_Container
 const {ref} = await container.get('TeqFw_Vue_Front_Ext_Vue');
 // in constructor (with `spec`)
 const {ref} = spec['TeqFw_Vue_Front_Ext_Vue'];
