@@ -1,6 +1,6 @@
 {
   "name": "@teqfw/vue",
-  "version": "0.4.0",
+  "version": "0.20.0",
   "description": "TeqFW: base module to use Vue on the front in teq-plugins.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
