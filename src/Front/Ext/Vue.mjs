@@ -3,158 +3,29 @@
  *
  * @namespace TeqFw_Vue_Front_Ext_Vue
  */
-if (window.Vue === undefined) {
-    throw new Error(`
-Add
 
-<script type="application/javascript" src="./src/vue/vue.global.prod.js"></script>
-
-to your startup HTML to use Vue 3.           
-`);
+// MODULE'S FUNCS
+/**
+ * Load UMD script from the back and execute it.
+ * @param {string} url
+ * @return {Promise<unknown>}
+ */
+async function loadUmd(url) {
+    return new Promise((resolve, reject) => {
+        // Create a script element
+        const script = document.createElement('script');
+        script.src = url;
+        script.onload = () => resolve();
+        script.onerror = (error) => reject(error);
+        document.head.appendChild(script);
+    });
 }
-// export corresponds to Vue v. 3.2.23:
-export const {
-    BaseTransition,
-    callWithAsyncErrorHandling,
-    callWithErrorHandling,
-    camelize,
-    capitalize,
-    cloneVNode,
-    Comment,
-    compatUtils,
-    compile,
-    computed,
-    createApp,
-    createBlock,
-    createCommentVNode,
-    createElementBlock,
-    createElementVNode,
-    createHydrationRenderer,
-    createPropsRestProxy,
-    createRenderer,
-    createSlots,
-    createSSRApp,
-    createStaticVNode,
-    createTextVNode,
-    createVNode,
-    customRef,
-    defineAsyncComponent,
-    defineComponent,
-    defineCustomElement,
-    defineEmits,
-    defineExpose,
-    defineProps,
-    defineSSRCustomElement,
-    effect,
-    EffectScope,
-    effectScope,
-    Fragment,
-    getCurrentInstance,
-    getCurrentScope,
-    getTransitionRawChildren,
-    guardReactiveProps,
-    h,
-    handleError,
-    hydrate,
-    initCustomFormatter,
-    initDirectivesForSSR,
-    inject,
-    isMemoSame,
-    isProxy,
-    isReactive,
-    isReadonly,
-    isRef,
-    isRuntimeOnly,
-    isVNode,
-    KeepAlive,
-    markRaw,
-    mergeDefaults,
-    mergeProps,
-    nextTick,
-    normalizeClass,
-    normalizeProps,
-    normalizeStyle,
-    onActivated,
-    onBeforeMount,
-    onBeforeUnmount,
-    onBeforeUpdate,
-    onDeactivated,
-    onErrorCaptured,
-    onMounted,
-    onRenderTracked,
-    onRenderTriggered,
-    onScopeDispose,
-    onServerPrefetch,
-    onUnmounted,
-    onUpdated,
-    openBlock,
-    popScopeId,
-    provide,
-    proxyRefs,
-    pushScopeId,
-    queuePostFlushCb,
-    reactive,
-    ReactiveEffect,
-    readonly,
-    ref,
-    registerRuntimeCompiler,
-    render,
-    renderList,
-    renderSlot,
-    resolveComponent,
-    resolveDirective,
-    resolveDynamicComponent,
-    resolveFilter,
-    resolveTransitionHooks,
-    setBlockTracking,
-    setDevtoolsHook,
-    setTransitionHooks,
-    shallowReactive,
-    shallowReadonly,
-    shallowRef,
-    ssrContextKey,
-    ssrUtils,
-    Static,
-    stop,
-    Suspense,
-    Teleport,
-    Text,
-    toDisplayString,
-    toHandlerKey,
-    toHandlers,
-    toRaw,
-    toRef,
-    toRefs,
-    transformVNodeArgs,
-    Transition,
-    TransitionGroup,
-    triggerRef,
-    unref,
-    useAttrs,
-    useCssModule,
-    useCssVars,
-    useSlots,
-    useSSRContext,
-    useTransitionState,
-    version,
-    vModelCheckbox,
-    vModelDynamic,
-    vModelRadio,
-    vModelSelect,
-    vModelText,
-    vShow,
-    VueElement,
-    warn,
-    watch,
-    watchEffect,
-    watchPostEffect,
-    watchSyncEffect,
-    withAsyncContext,
-    withCtx,
-    withDefaults,
-    withDirectives,
-    withKeys,
-    withMemo,
-    withModifiers,
-    withScopeId,
-} = window.Vue;
+
+// MODULE'S MAIN
+if (!window.Vue) await loadUmd('../../../../src/vue/vue.runtime.global.prod.js');
+if (!window.VueRouter) await loadUmd('../../../../src/vue-router/vue-router.global.prod.js');
+
+const Vue = window.Vue;
+const VueRouter = window.VueRouter;
+
+export {Vue, VueRouter};
