@@ -3,23 +3,8 @@
  *
  * @namespace TeqFw_Vue_Front_Ext_Vue
  */
-
-// MODULE'S FUNCS
-/**
- * Load UMD script from the back and execute it.
- * @param {string} url
- * @return {Promise<unknown>}
- */
-async function loadUmd(url) {
-    return new Promise((resolve, reject) => {
-        // Create a script element
-        const script = document.createElement('script');
-        script.src = url;
-        script.onload = () => resolve();
-        script.onerror = (error) => reject(error);
-        document.head.appendChild(script);
-    });
-}
+// MODULE'S IMPORTS
+import {loadUmd} from '../../../../web/@teqfw/web/js/loaders.mjs';
 
 // MODULE'S MAIN
 if (!window.Vue) await loadUmd('../../../../src/vue/vue.runtime.global.prod.js');
