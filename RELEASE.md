@@ -1,5 +1,9 @@
 # @teqfw/vue: releases
 
+## 0.21.0
+
+* Use the `./Ext/` instead of the `./Lib/`.
+
 ## 0.20.0
 
 * These changes are related to the new architecture of the `@teqfw/di` package.
